@@ -16,13 +16,15 @@ import java.util.UUID;
 public class User {
     @Id
     @GeneratedValue(generator = "uuid2")
+    //я бы оставил id
     @Column(name = "user_id")
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
-    UUID id;
+    //все поля нужно сделать private
+    private UUID id;
     String name;
     String surname;
     String patronymic;
-    int age;
+    int age; // birthdate? age это возраст регистрациИ? а если актуальный возраст, то нужно каждый год обновлять
     Occupation occupation;
     String passport;
 }

@@ -20,11 +20,12 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class UserControllerTest {
-    @Autowired
-    UserController userController;
 
     @Autowired
-    UserRepository userRepository;
+    private UserController userController;
+
+    @Autowired
+    private UserRepository userRepository;
 
     private UUID userId = UUID.randomUUID();
     private User john;

@@ -12,9 +12,11 @@ import java.util.UUID;
 @Service
 public class UserService {
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
+    //orElseThrow нужно указать какой Exception создавать. относится ко всем orElseThrow
     public User findById(UUID userId) {
+        //лучше возвращать Optional<User>
         return userRepository.findById(userId).orElseThrow();
     }
 
@@ -44,6 +46,6 @@ public class UserService {
     }
 
     public boolean isRetired(UUID userId) {
-        return isRetired(userRepository.findById(userId).orElseThrow().getPassport());
+        return isRetired(findById(userId).getPassport());
     }
 }
